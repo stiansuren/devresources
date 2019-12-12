@@ -1,10 +1,21 @@
 ### Get started 
 
-`npm install`
-`npm run dev`
+After cloning the repo, navigate to the folder and install dependencies:
 
-### To create a production build
+```sh
+cd devresources
+npm install
+```
 
-`npm run build`
-`npm start`
- 
+Run the app on a local server:
+
+```sh
+npm run dev
+```
+
+Create and run a production build:
+
+```sh
+npm run build
+npm start
+```
