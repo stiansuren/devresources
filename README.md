@@ -1,10 +1,10 @@
-# Get started 
+### Get started 
 
-### `npm install`
-### `npm run dev`
+`npm install`
+`npm run dev`
 
-# To create a production build
+### To create a production build
 
-### `npm run build`
-### `npm start`
+`npm run build`
+`npm start`
  
