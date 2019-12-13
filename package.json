@@ -1,7 +1,7 @@
 {
   "name": "devresources",
   "version": "1.0.0",
-  "description": "",
+  "description": "Dev Resources",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -9,16 +9,20 @@
     "start": "next start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Stian Surén",
   "license": "ISC",
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "fontfaceobserver": "^2.1.0",
     "next": "^9.1.5",
+    "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.17",
     "@types/react": "^16.9.16",
+    "@types/styled-jsx": "^2.2.8",
     "typescript": "^3.7.3"
   }
 }
