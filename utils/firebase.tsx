@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 let firebaseConfig = {
-    apiKey: "AIzaSyD53-kdvc9mX85qVoyz_0rsq90bgYZDav0",
+    apiKey: process.env.API_KEY,
     authDomain: "devresources-app.firebaseapp.com",
     databaseURL: "https://devresources-app.firebaseio.com",
     projectId: "devresources-app",

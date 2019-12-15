@@ -6,10 +6,10 @@ const test_resources: Array<object> = [
   {id: 'g37dh3h83h2',title: 'CSS Grid Garden', URL: 'https://cssgridgarden.com'}
 ];
 
+let resources: Array<any> = [];
+
 export const Content = () => {
 
-    let resources: Array<any> = [];
-    
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -17,7 +17,6 @@ export const Content = () => {
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
                 const data = {title: doc.data().title, URL: doc.data().URL, id: doc.id};
-                console.log(`Dataen er: ${data.title}`);
                 resources = [...resources, data];
             });
             setLoading(false);
