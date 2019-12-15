@@ -1,0 +1,32 @@
+// $font_color: #143FB1;
+$font_color: black;
+
+a {
+    text-decoration: none;
+    font-size: 24px;
+    color: $font_color;
+}
+
+a:visited {
+    color: $font_color;
+}
+
+a:hover {
+    color:#0014C3;
+    cursor: pointer;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 24px;
+}
+
+li:hover {
+    animation: linkHover ease-out 0.15s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes linkHover { from { } to { 
+    transform: skew(-10deg, 0deg) translateY(-3px);
+    opacity: 0.75; 
+} }
