@@ -1,5 +1,16 @@
-h1{
+.title {
   color: #0014C3;
   font-size: 48px;
   line-height: 48px;
+  opacity: 0;
+
+  animation: onLoad 0.5s ease-out  0.5s forwards;
 }
+
+@keyframes onLoad { from {
+  transform: skew(-10deg, 0deg) translateY(-3px) rotateY(20deg);
+  opacity: 0;
+ } to { 
+  transform: skew(0deg, 0deg) translateY(0px) rotateY(0deg);
+  opacity: 1; 
+} }
