@@ -28,7 +28,7 @@ export const Content = () => {
         });
     }, [loading]);
 
-    return <div>
+    return <div className="links">
         {resources.map((resource) => {
             return <li key={resource.id}><a className="resource" href={resource.URL}>{resource.title} -></a></li>
         })}

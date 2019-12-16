@@ -1,5 +1,25 @@
-h1{
-  color: #0014C3;
-  font-size: 48px;
-  line-height: 48px;
+.header {
+  animation: onLoad 0.5s ease-out  0.5s forwards;
+  opacity: 0;
+  margin-bottom: 48px;
+
+  &--title {
+    color: #0014C3;
+    font-size: 48px;
+    line-height: 48px;  
+    margin-bottom: 16px;
+  }
+
+  &--slogan {
+    margin: 0;
+    font-size: 18px;
+  }
 }
+
+@keyframes onLoad { from {
+  transform: skew(-10deg, 0deg) translateY(-3px) rotateY(20deg);
+  opacity: 0;
+ } to { 
+  transform: skew(0deg, 0deg) translateY(0px) rotateY(0deg);
+  opacity: 1; 
+} }

@@ -1,4 +1,3 @@
-// $font_color: #143FB1;
 $font_color: black;
 
 a {
@@ -16,17 +15,28 @@ a:hover {
     cursor: pointer;
 }
 
+.links {
+    opacity: 0;
+    animation: onLoad 0.5s ease-out forwards;
+}
+
 li {
     list-style-type: none;
     margin-bottom: 24px;
 }
 
 li:hover {
-    animation: linkHover ease-out 0.15s;
-    animation-fill-mode: forwards;
+    animation: linkHover 0.5 ease-out forwards;
 }
 
 @keyframes linkHover { from { } to { 
     transform: skew(-10deg, 0deg) translateY(-3px);
-    opacity: 0.75; 
 } }
+
+@keyframes onLoad { from {
+    transform: skew(-10deg, 0deg) translateY(-3px) rotateY(20deg);
+    opacity: 0;
+   } to { 
+    transform: skew(0deg, 0deg) translateY(0px) rotateY(0deg);
+    opacity: 1; 
+  } }
