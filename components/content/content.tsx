@@ -17,7 +17,7 @@ export const Content = () => {
         firebase.firestore().collection('resources').get()
         .then(function(querySnapshot) {
             querySnapshot.forEach(function(doc) {
-                const data = {title: doc.data().title, URL: doc.data().URL, id: doc.id};
+                const data = {title: doc.data().title, URL: doc.data().URL, id: doc.id, tags: doc.data().tags};
                 resources = [...resources, data];
                 resources.sort((a, b) => (a.title > b.title) ? 1 : -1);
             });
@@ -30,7 +30,10 @@ export const Content = () => {
 
     return <div className="links">
         {resources.map((resource) => {
-            return <li key={resource.id}><a className="resource" href={resource.URL}>{resource.title} -></a></li>
+            return <li className="links__link" key={resource.id}>
+                <a className="links__link__title" href={resource.URL}>{resource.title} -></a>
+                {resource.tags.map((tag:any)=> <p className="links__link__tag">{tag}</p>)}
+            </li>
         })}
     </div>
 }
