@@ -1,25 +1,11 @@
 .header {
   animation: onLoad 0.5s ease-out forwards;
   opacity: 0;
-  margin-bottom: 48px;
-
-  &__title {
-    color: #0014C3;
-    font-size: 48px;
-    line-height: 48px;  
-    margin-bottom: 16px;
-  }
-
-  &__slogan {
-    margin: 0;
-    font-size: 18px;
-  }
+  margin: 1em 0 3em 0;
 }
 
 @keyframes onLoad { from {
-  transform: skew(-10deg, 0deg) translateY(-3px) rotateY(20deg);
   opacity: 0;
  } to { 
-  transform: skew(0deg, 0deg) translateY(0px) rotateY(0deg);
   opacity: 1; 
 } }

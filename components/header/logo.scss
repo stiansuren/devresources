@@ -1,0 +1,11 @@
+.logo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: calc(8px + 2vw);
+    width: calc(100px + 20vw);
+
+    &__type{
+        align-self: center;
+        width: 86%;
+    }
+  }
