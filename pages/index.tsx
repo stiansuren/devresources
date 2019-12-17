@@ -13,25 +13,24 @@ const Home: NextPage = ({ links } :any) => (
     </>
 );
 
-Home.getInitialProps = async function () {
-  let links :any = await firebase.firestore().collection('resources').get()
-    .then(function(querySnapshot) {
-      let l :Array<any>= [];
-        querySnapshot.forEach(function(doc) {
-            const data = {title: doc.data().title, URL: doc.data().URL, id: doc.id, tags: doc.data().tags};
-            l = [...l, data];
-            l.sort((a, b) => (a.title > b.title) ? 1 : -1);
-        });
-        return l;
-    })
-  .catch(function(error) {
-      console.log("Error getting documents: ", error);
-      return [];
-  });
-
-  return {
-    links: links
+Home.getInitialProps = async () => {
+  let links :Array<any>= [];
+  try {
+    const snapshot = await firebase.firestore().collection('resources').orderBy('title').get();
+    links = snapshot.docs.map(doc => {
+      const data = doc.data();
+      const id = doc.id;
+      return { 
+        title: data.title, 
+        url: data.URL,
+        id: id,
+        tags: data.tags,
+      };
+    });
+  } catch (e) {
+    console.error('Error getting documents: ', e);
   }
-}
+  return { links };
+};
 
 export default Home;
