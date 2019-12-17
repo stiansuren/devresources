@@ -1,20 +1,46 @@
 import React from "react";
 import './content.scss';
 
-interface Link {
+type Link = {
     title: string,
     id: string,
-    URL: string,
-    tags: Array<string>
+    url: string,
+    tags: Array<Tags>
 }
 
-export const Content = ({ links } :any) => {
-    return <div className="links">
+type Tags = {
+    tag: string
+}
+
+type TagsProps = {
+    tags: Array<Tags>
+}
+
+type LinkProps = {
+    link: Link
+}
+
+type ContentProps = {
+    links: Array<Link>
+}
+
+const Tags = ({ tags } :TagsProps) => {
+    return <>
+        {tags.map((tag, index) => <p key={index} className="links__tag">{tag}</p>)}
+    </>
+}
+
+const Link = ({ link } :LinkProps) => {
+    return <li className="links__item">
+        <a className="links__link" href={link.url}>{link.title} &rarr;</a>
+        <Tags tags={link.tags}/>
+    </li>
+}
+
+export const Content = ({ links } :ContentProps) => {
+    return <ul className="links">
         {links.map((link :Link) => {
-            return <li className="links__link" key={link.id}>
-                <a className="links__link__title" href={link.URL}>{link.title} -></a>
-                {link.tags.map((tag)=> <p key={link.id + tag} className="links__link__tag">{tag}</p>)}
-            </li>
+            return <Link key={link.id} link={link}/>
         })}
-    </div>
+    </ul>
 }
