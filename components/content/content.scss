@@ -11,17 +11,22 @@ a:visited {
 }
 
 a:hover {
-    color:#0014C3;
+    color:rgb(70, 70, 70);
     cursor: pointer;
 }
 
 .links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    grid-gap: 12px 20px;
+    width: 100%;
     opacity: 0;
     animation: onLoad 0.5s ease-out forwards;
     padding: 0;
 }
 
 .links__item {
+    width: fit-content;
     margin-bottom: 24px;
 }
 
@@ -30,8 +35,15 @@ a:hover {
     animation: linkHover 0.5 ease-out forwards;
 }
 
+.links__tags {
+    display: flex;
+    flex-direction: row;
+}
+
 .links__tag {
-    margin: 0;
+    margin: 0 1em 0 0;
+    color: black;
+    width: fit-content;
 }
 
 li {
@@ -39,13 +51,11 @@ li {
 }
 
 @keyframes linkHover { from { } to { 
-    transform: skew(-10deg, 0deg) translateY(-3px);
+    transform: translateY(-3px);
 } }
 
 @keyframes onLoad { from {
-    transform: skew(-10deg, 0deg) translateY(-3px) rotateY(20deg);
     opacity: 0;
    } to { 
-    transform: skew(0deg, 0deg) translateY(0px) rotateY(0deg);
     opacity: 1; 
   } }

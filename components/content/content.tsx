@@ -25,9 +25,9 @@ type ContentProps = {
 }
 
 const Tags = ({ tags } :TagsProps) => {
-    return <>
-        {tags.map((tag, index) => <p key={index} className="links__tag">{tag}</p>)}
-    </>
+    return <div className="links__tags">
+        {tags.map((tag) => <p key={tag.toString()} className="links__tag">{tag}</p>)}
+    </div>
 }
 
 const Link = ({ link } :LinkProps) => {
