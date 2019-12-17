@@ -1,16 +1,16 @@
 .header {
-  animation: onLoad 0.5s ease-out  0.5s forwards;
+  animation: onLoad 0.5s ease-out forwards;
   opacity: 0;
   margin-bottom: 48px;
 
-  &--title {
+  &__title {
     color: #0014C3;
     font-size: 48px;
     line-height: 48px;  
     margin-bottom: 16px;
   }
 
-  &--slogan {
+  &__slogan {
     margin: 0;
     font-size: 18px;
   }

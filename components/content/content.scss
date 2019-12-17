@@ -18,15 +18,22 @@ a:hover {
 .links {
     opacity: 0;
     animation: onLoad 0.5s ease-out forwards;
+
+    &__link {
+        margin-bottom: 24px;
+
+        &__title:hover{
+            animation: linkHover 0.5 ease-out forwards;
+        }
+
+        &__tag {
+            margin: 0;
+        }
+    }
 }
 
 li {
     list-style-type: none;
-    margin-bottom: 24px;
-}
-
-li:hover {
-    animation: linkHover 0.5 ease-out forwards;
 }
 
 @keyframes linkHover { from { } to { 
