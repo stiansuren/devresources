@@ -1,19 +1,20 @@
 import { NextPage } from 'next';
-import { HeadTag } from '../components/head-tag';
-import Header from '../components/header/header';
-import { Content } from '../components/content/content';
-import '../components/global-styles.scss';
 import firebase from '../utils/firebase';
+import { HeadTag } from '../components/head-tag';
+import { ContentList } from '../admin/contentList';
+import { AddLink } from '../admin/addLink';
+import '../components/global-styles.scss';
+import '../admin/admin.scss';
 
-const Home: NextPage = ({ links } :any) => (
+const Admin: NextPage = ({ links } :any) => (
     <>
       <HeadTag/>
-      <Header/>
-      <Content links={links} />
+      <ContentList links={links} />
+      <AddLink/>
     </>
 );
 
-Home.getInitialProps = async () => {
+Admin.getInitialProps = async () => {
   let links :Array<any>= [];
   try {
     const snapshot = await firebase.firestore().collection('resources').orderBy('title').get();
@@ -33,4 +34,4 @@ Home.getInitialProps = async () => {
   return { links };
 };
 
-export default Home;
+export default Admin;
