@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as firebase from 'firebase/app';
-import { LinkProps } from './Link';
+import { LinkProps } from './link';
 
 type AddProps = {
     handleUpdate: () => Promise<void>
