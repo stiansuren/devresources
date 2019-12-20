@@ -42,7 +42,7 @@ export const AddLink = ({ handleUpdate } :AddProps) => {
                 Date:
                 <input value={date} onChange={e => setDate(e.target.value)} type="text" name="date" />
             </label>
-            <input type="submit" value="Submit" />
+            <button>Submit</button>
         </form>
     </div>
 }

@@ -5,9 +5,9 @@ export const AddField = () => {
     const [field, setField] = useState('');
 
     return <form onSubmit={e => addFieldToLinksInDatabase(e, field)}>
-        <label><h3>New field title</h3></label>
+        <label><h3>Add field to all links</h3></label>
         <input value={field} type="text" onChange={e => setField(e.target.value)}/>
-        <input type="submit" value="Submit" />
+        <button>Submit</button>
     </form>
 }
 

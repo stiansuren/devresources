@@ -15,11 +15,7 @@ const Admin: NextPage = ({ initialLinks } :any) => {
         const updatedLinks = await getLinksFromDatabase();
         setLinks(updatedLinks);
     };
-
-    useEffect(()=>{
-        console.log(links[3]);
-    }, [links]);
-
+    
     return <>
         <HeadTag/>
         <ContentList handleUpdate={handleUpdate} links={links} />
