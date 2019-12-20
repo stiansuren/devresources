@@ -1,44 +1,11 @@
-import * as firebase from 'firebase/app';
-
-type Link = {
-    title: string,
-    id: string,
-    url: string,
-    tags: Array<Tags>,
-    date: string
-}
-
-type Tags = {
-    tag: string
-}
-
-type LinkProps = {
-    link: Link
-}
+import { Link, LinkProps } from './link';
 
 type ContentProps = {
-    links: Array<Link>
+    links: Array<LinkProps>,
+    handleUpdate: () => Promise<void>
 }
 
-const Link = ({ link } :LinkProps) => {
-    return <tr>
-        <td><a href={link.url}>{link.title}</a></td>
-        <td>{link.tags.join(", ")}</td>
-        <td>{link.date}</td>
-        <td><button onClick={() => deleteFromDatabase(link.id)}>Delete</button></td>
-    </tr>
-}
-
-const deleteFromDatabase = async (id: string) => {
-    try {
-        await firebase.firestore().collection('resources').doc(id).delete();
-        console.log("Document successfully deleted!");
-    } catch (e) {
-        console.log('Error removing document: ', e);
-    }
-}
-
-export const ContentList = ({ links } :ContentProps) => {
+export const ContentList = ({ links, handleUpdate } :ContentProps) => {
     return <table>
         <tbody>
             <tr>
@@ -47,8 +14,8 @@ export const ContentList = ({ links } :ContentProps) => {
                 <th>Date</th>
                 <th>Actions</th>
             </tr>
-            {links.map((link :Link) => {
-                return <Link key={link.id} link={link}/>
+            {links.map((link :LinkProps) => {
+                return <Link key={link.id} handleUpdate={handleUpdate} link={link}/>
             })}
         </tbody>
     </table>

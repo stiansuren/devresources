@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import * as firebase from 'firebase/app';
+import { LinkProps } from './Link';
 
-type Data = {
-    title: string,
-    url: string,
-    tags: Array<string>, 
-    date: string
+type AddProps = {
+    handleUpdate: () => Promise<void>
 }
 
-export const AddLink = () => {
+export const AddLink = ({ handleUpdate } :AddProps) => {
 
     const [title, setTitle] = useState(''); 
     const [url, setUrl] = useState(''); 
@@ -22,6 +20,7 @@ export const AddLink = () => {
         setUrl('');
         setTags('');
         setDate('');
+        handleUpdate();
     }
 
     return <div className="addLink">
@@ -48,9 +47,9 @@ export const AddLink = () => {
     </div>
 }
 
-const addToDatabase = async (data :Data) => {
+const addToDatabase = async (link :LinkProps) => {
     try{
-        firebase.firestore().collection('resources').add(data);
+        firebase.firestore().collection('resources').add(link);
         console.log("Document successfully written!");
     } catch(e){
         console.error("Error writing document: ", e);
