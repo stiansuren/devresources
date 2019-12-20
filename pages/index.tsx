@@ -4,9 +4,11 @@ import Header from '../components/header/header';
 import { Content } from '../components/content/content';
 import '../components/global-styles.scss';
 import firebase from '../utils/firebase';
+import { Mixpanel } from '../utils/mixpanel';
 
 const Home: NextPage = ({ links } :any) => (
     <>
+      {Mixpanel.track('Page load')}
       <HeadTag/>
       <Header/>
       <Content links={links} />

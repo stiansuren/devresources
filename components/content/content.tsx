@@ -1,5 +1,6 @@
 import React from "react";
 import './content.scss';
+import { Mixpanel } from '../../utils/mixpanel';
 
 type Link = {
     title: string,
@@ -32,7 +33,7 @@ const Tags = ({ tags } :TagsProps) => {
 
 const Link = ({ link } :LinkProps) => {
     return <li className="links__item">
-        <a className="links__link" href={link.url}>{link.title} &rarr;</a>
+        <a className="links__link" onClick={() => Mixpanel.track(link.title)} href={link.url}>{link.title} &rarr;</a>
         <Tags tags={link.tags}/>
     </li>
 }
