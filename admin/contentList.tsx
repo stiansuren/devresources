@@ -4,7 +4,8 @@ type Link = {
     title: string,
     id: string,
     url: string,
-    tags: Array<Tags>
+    tags: Array<Tags>,
+    date: string
 }
 
 type Tags = {
@@ -23,6 +24,7 @@ const Link = ({ link } :LinkProps) => {
     return <tr>
         <td><a href={link.url}>{link.title}</a></td>
         <td>{link.tags.join(", ")}</td>
+        <td>{link.date}</td>
         <td><button onClick={() => deleteFromDatabase(link.id)}>Delete</button></td>
     </tr>
 }
@@ -42,6 +44,7 @@ export const ContentList = ({ links } :ContentProps) => {
             <tr>
                 <th>Links</th>
                 <th>Tags</th>
+                <th>Date</th>
                 <th>Actions</th>
             </tr>
             {links.map((link :Link) => {

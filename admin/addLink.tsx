@@ -4,7 +4,8 @@ import * as firebase from 'firebase/app';
 type Data = {
     title: string,
     url: string,
-    tags: Array<string>
+    tags: Array<string>, 
+    date: string
 }
 
 export const AddLink = () => {
@@ -12,13 +13,15 @@ export const AddLink = () => {
     const [title, setTitle] = useState(''); 
     const [url, setUrl] = useState(''); 
     const [tags, setTags] = useState(''); 
+    const [date, setDate] = useState(''); 
 
     const sendData = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        addToDatabase({title, url, tags: tags.split(', ')});
+        addToDatabase({title, url, tags: tags.split(', '), date});
         setTitle('');
         setUrl('');
         setTags('');
+        setDate('');
     }
 
     return <div className="addLink">
@@ -35,6 +38,10 @@ export const AddLink = () => {
             <label>
                 Tags:
                 <input value={tags} onChange={e => setTags(e.target.value)} type="text" name="tags" />
+            </label>
+            <label>
+                Date:
+                <input value={date} onChange={e => setDate(e.target.value)} type="text" name="date" />
             </label>
             <input type="submit" value="Submit" />
         </form>

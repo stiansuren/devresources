@@ -5,12 +5,14 @@ import { ContentList } from '../admin/contentList';
 import { AddLink } from '../admin/addLink';
 import '../components/global-styles.scss';
 import '../admin/admin.scss';
+import { AddField } from '../admin/addField';
 
 const Admin: NextPage = ({ links } :any) => (
     <>
       <HeadTag/>
       <ContentList links={links} />
       <AddLink/>
+      <AddField/>
     </>
 );
 
@@ -26,6 +28,7 @@ Admin.getInitialProps = async () => {
         url: data.url,
         id: id,
         tags: data.tags,
+        date: data.date
       };
     });
   } catch (e) {
