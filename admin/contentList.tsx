@@ -20,24 +20,24 @@ type ContentProps = {
 }
 
 const Link = ({ link } :LinkProps) => {
-    return <tr className="links__item">
-        <td><a className="links__link" href={link.url}>{link.title} &rarr;</a></td>
+    return <tr>
+        <td><a href={link.url}>{link.title}</a></td>
         <td>{link.tags.join(", ")}</td>
         <td><button onClick={() => deleteFromDatabase(link.id)}>Delete</button></td>
     </tr>
 }
 
-const deleteFromDatabase = async (id :string) => {
-    firebase.firestore().collection('resources').doc(id).delete()
-    .then(function() {
+const deleteFromDatabase = async (id: string) => {
+    try {
+        await firebase.firestore().collection('resources').doc(id).delete();
         console.log("Document successfully deleted!");
-    }).catch(function(error) {
-        console.error("Error removing document: ", error);
-    });
+    } catch (e) {
+        console.log('Error removing document: ', e);
+    }
 }
 
 export const ContentList = ({ links } :ContentProps) => {
-    return <table className="links">
+    return <table>
         <tbody>
             <tr>
                 <th>Links</th>

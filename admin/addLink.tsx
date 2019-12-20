@@ -9,26 +9,16 @@ type Data = {
 
 export const AddLink = () => {
 
-    const [data, setData] = useState({title: "", url: "", tags: [""]});
-
-    const handleChange = (e :React.ChangeEvent<HTMLInputElement>) => {
-        switch(e.target.name){
-            case 'title':
-                setData({...data, title: e.target.value})
-                break;
-            case 'url':
-                setData({...data, url: e.target.value})
-                break;
-            case 'tags':
-                const tags = e.target.value.split(", ")
-                setData({...data, tags: tags})
-                break;
-        } 
-    }
+    const [title, setTitle] = useState(''); 
+    const [url, setUrl] = useState(''); 
+    const [tags, setTags] = useState(''); 
 
     const sendData = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        addToDatabase(data);
+        addToDatabase({title, url, tags: tags.split(', ')});
+        setTitle('');
+        setUrl('');
+        setTags('');
     }
 
     return <div className="addLink">
@@ -36,15 +26,15 @@ export const AddLink = () => {
         <form id='form' onSubmit={sendData}>
             <label>
                 Title:
-                <input value={data.title} onChange={handleChange} type="text" name="title" />
+                <input value={title} onChange={e => setTitle(e.target.value)} type="text" name="title" />
             </label>
             <label>
                 URL:
-                <input value={data.url} onChange={handleChange} type="text" name="url" />
+                <input value={url} onChange={e => setUrl(e.target.value)} type="text" name="url" />
             </label>
             <label>
-                Tag:
-                <input key="tag" onChange={handleChange} type="text" name="tags" />
+                Tags:
+                <input value={tags} onChange={e => setTags(e.target.value)} type="text" name="tags" />
             </label>
             <input type="submit" value="Submit" />
         </form>
@@ -52,11 +42,10 @@ export const AddLink = () => {
 }
 
 const addToDatabase = async (data :Data) => {
-    firebase.firestore().collection('resources').add(data)
-    .then(function() {
+    try{
+        firebase.firestore().collection('resources').add(data);
         console.log("Document successfully written!");
-    })
-    .catch(function(error) {
-        console.error("Error writing document: ", error);
-    });
+    } catch(e){
+        console.error("Error writing document: ", e);
+    };
 }
