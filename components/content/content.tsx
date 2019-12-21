@@ -31,7 +31,6 @@ const Tags = ({ tags } :TagsProps) => {
     return <div className="links__tags">
     {tags.map((tag) => {
         const colorIndex = tagTypes.findIndex(t => t === tag.toString()) % (colors.length);
-        console.log(`${tag.toString()} has the index ${tagTypes.findIndex(t => t === tag.toString())} and gets the colorindex: ${colorIndex}`);
         const color = colors[colorIndex];
         return <p key={tag.toString()} className={`links__tag links__tag--${color}`}>{tag}</p>}
         )}

@@ -20,7 +20,7 @@ a:hover {
 
 .links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 500px));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
     grid-gap: 0 24px;
     animation: onLoad 0.5s ease-out forwards;
     padding: 0;
