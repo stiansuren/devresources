@@ -26,14 +26,21 @@ type ContentProps = {
 }
 
 const Tags = ({ tags } :TagsProps) => {
+    const tagTypes = ['CSS', 'React', 'Animations', 'WebGL', 'JS', 'P5.js', 'Shaders', 'SVG', 'HTML'];
+    const colors = ['orange', 'purple', 'green']
     return <div className="links__tags">
-        {tags.map((tag) => <p key={tag.toString()} className="links__tag">{tag}</p>)}
+    {tags.map((tag) => {
+        const colorIndex = tagTypes.findIndex(t => t === tag.toString()) % (colors.length);
+        console.log(`${tag.toString()} has the index ${tagTypes.findIndex(t => t === tag.toString())} and gets the colorindex: ${colorIndex}`);
+        const color = colors[colorIndex];
+        return <p key={tag.toString()} className={`links__tag links__tag--${color}`}>{tag}</p>}
+        )}
     </div>
 }
 
 const Link = ({ link } :LinkProps) => {
     return <li className="links__item">
-        <a className="links__link" onClick={() => Mixpanel.track(link.title)} href={link.url}>{link.title} &rarr;</a>
+        <a className="links__link" onClick={() => Mixpanel.track(link.title)} href={link.url}>{link.title}</a>
         <Tags tags={link.tags}/>
     </li>
 }
