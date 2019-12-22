@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { HeadTag } from '../components/head-tag';
-import Header from '../components/header/header';
+import { Logo } from '../components/logo/logo';
 import { Content } from '../components/content/content';
 import '../components/global-styles.scss';
 import firebase from '../utils/firebase';
@@ -10,7 +10,7 @@ const Home: NextPage = ({ links } :any) => (
     <>
       {Mixpanel.track('Page load')}
       <HeadTag/>
-      <Header/>
+      <Logo/>
       <Content links={links} />
     </>
 );

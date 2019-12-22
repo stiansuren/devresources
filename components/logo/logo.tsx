@@ -3,7 +3,7 @@ import { LogoType } from './logotype';
 import './logo.scss';
 
 export const Logo = () => {
-    return <div className= "logo">
+    return <div id='logo' className='logo'>
         <LogoIcon/>
         <LogoType/>
     </div>
