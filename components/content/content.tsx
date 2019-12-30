@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { Filters } from '../filters';
+import { Link } from './link';
 import './content.scss';
-import { Mixpanel } from '../../utils/mixpanel';
 
 type Link = {
     title: string,
@@ -12,16 +12,6 @@ type Link = {
 
 type Tags = {
     tag: string
-}
-
-type TagsProps = {
-    tags: Array<Tags>,
-    tagTypes: Array<Tags>
-}
-
-type LinkProps = {
-    link: Link,
-    tagTypes: Array<Tags>
 }
 
 type ContentProps = {
@@ -57,25 +47,6 @@ export const Content = ({ links } :ContentProps) => {
             })}
         </ul>
     </>
-}
-
-const Tags = ({ tags, tagTypes } :TagsProps) => {
-    const colors = ['orange', 'purple', 'green'];
-    return <div className='links__tags'>
-        {tags.map((tag) => {
-            const colorIndex = tagTypes.findIndex(t => t === tag) % (colors.length);
-            const color = colors[colorIndex];
-            return <p key={tag.toString()} className={`links__tag links__tag--${color}`}>{tag}</p>
-        }
-        )}
-    </div>
-}
-
-const Link = ({ link, tagTypes } :LinkProps) => {
-    return <li className="links__item">
-        <a className="links__link" onClick={() => Mixpanel.track(link.title)} href={link.url}>{link.title}</a>
-        <Tags tags={link.tags} tagTypes={tagTypes}/>
-    </li>
 }
 
 const getTagTypes = ({ links }: ContentProps) => {
