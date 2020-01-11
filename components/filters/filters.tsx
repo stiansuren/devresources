@@ -17,6 +17,6 @@ export const Filters = ({ filterLinks, resetFilter, tagTypes, activeTags } :Filt
     
     return <div className="filters">
         {tagTypes.map(tag => <FilterButton tag={tag.toString()} active={activeTags.includes(tag.toString())} key={tag.toString()} onClick={() => filterLinks(tag)}/>)}
-        <button className="filters__button" onClick={() => resetFilter()}>Reset filter</button>
+        {activeTags.length > 0 && <button className="filters__button filters__button__reset" onClick={() => resetFilter()}>See all categories</button>}
     </div>;
 }

@@ -43,7 +43,7 @@ export const Content = ({ links } :ContentProps) => {
     return <>
         <Header/>
         <Filters tagTypes={tagTypes} resetFilter={resetFilter} filterLinks={filterLinks} activeTags={activeTags}/>
-        <p>Showing {activeLinks.length === 1 ? `1 link` : `${activeLinks.length} links`}</p>
+        <p>{activeLinks.length === 1 ? `1 paper` : `${activeLinks.length} papers`}</p>
         <ul className="links">
             {activeLinks.map((link :Link) => {
                 return <Link key={link.id} link={link} tagTypes={tagTypes}/>
@@ -54,7 +54,7 @@ export const Content = ({ links } :ContentProps) => {
 
 const getTagTypes = ({ links }: ContentProps) => {
     const tags :Array<Tags> = [];
-    links.map(link => link.tags.map(tag => tags.push(tag)));
+    links.map(link => link.tags.map(tag => tag.toString() != 'Inspiration' && tags.push(tag)));
     return tags.filter((element, index) => {
         return tags.indexOf(element) === index;
     });

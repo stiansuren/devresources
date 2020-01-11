@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 export const HeadTag = () => ( 
     <Head>
-        <title>tuts & tips</title>
+        <title>The Code Journal</title>
         <meta
         name="viewport"
         content="initial-scale=1.0, width=device-width"
