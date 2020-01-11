@@ -1,24 +1,8 @@
 $color_blue: #0039CC;
 
-a {
-    text-decoration: none;
-    font-size: 24px;
-    color: $color_blue;
-    font-weight: 500;
-}
-
-a:visited {
-    color: $color_blue;
-}
-
-a:hover {
-    color: black;
-    cursor: pointer;
-}
-
 .links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 320px));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 320px));
     grid-gap: 0 24px;
     animation: onLoad 0.5s ease-out forwards;
     padding: 64px 0;
@@ -27,6 +11,22 @@ a:hover {
 .links__item {
     width: fit-content;
     margin-bottom: 24px;
+
+    a {
+        text-decoration: none;
+        font-size: 24px;
+        color: $color_blue;
+        font-weight: 500;
+    }
+    
+    a:visited {
+        color: $color_blue;
+    }
+    
+    a:hover {
+        color: black;
+        cursor: pointer;
+    }
 }
 
 .links__link:hover{

@@ -1,9 +1,7 @@
-import { Tags } from './tags';
 import { Mixpanel } from '../../utils/mixpanel';
 
 type LinkProps = {
-    link: Link,
-    tagTypes: Array<Tags>
+    link: Link
 }
 
 type Link = {
@@ -17,9 +15,8 @@ type Tags = {
     tag: string
 }
 
-export const Link = ({ link, tagTypes } :LinkProps) => {
+export const Link = ({ link } :LinkProps) => {
     return <li className="links__item">
         <a className="links__link" onClick={() => Mixpanel.track(link.title)} href={link.url}>{link.title}</a>
-        <Tags tags={link.tags} tagTypes={tagTypes}/>
     </li>
 }
