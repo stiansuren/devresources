@@ -1,0 +1,51 @@
+$color_blue: #0039CC;
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 64px 0;
+    border-bottom: 2px solid black;
+}
+
+.filters__button{
+    font-family: 'Work Sans', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    position: relative;
+    background-size: 100px;
+    border: none;
+    color: $color_blue;
+    margin: 0;
+    margin-right: 36px;
+    margin-bottom: 16px;
+    padding: 0;
+
+    &:hover {
+        color: black;
+        cursor: pointer;
+
+        transform: perspective(64px) rotateX(8deg);
+    }
+
+    & p {
+        margin: 0;
+    }
+
+    &__reset{
+        font-size: 24px;
+        font-weight: 500;
+    }
+}
+
+.filters__button--active{
+    color: black;
+    transform: perspective(64px) rotateX(24deg);
+
+    &:hover {
+        cursor: pointer;
+
+        transform: 0;
+    }
+}
+

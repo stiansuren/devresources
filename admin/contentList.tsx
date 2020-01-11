@@ -9,7 +9,7 @@ export const ContentList = ({ links, handleUpdate } :ContentProps) => {
     return <table>
         <tbody>
             <tr>
-                <th>Links</th>
+                <th>Links ({links.length})</th>
                 <th>Tags</th>
                 <th>Date</th>
                 <th>Actions</th>

@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import { Filters } from '../filters/filters';
+import { Link } from './link';
+import { Header } from '../header';
 import './content.scss';
-import { Mixpanel } from '../../utils/mixpanel';
 
 type Link = {
     title: string,
@@ -13,41 +15,47 @@ type Tags = {
     tag: string
 }
 
-type TagsProps = {
-    tags: Array<Tags>
-}
-
-type LinkProps = {
-    link: Link
-}
-
 type ContentProps = {
     links: Array<Link>
 }
 
-const Tags = ({ tags } :TagsProps) => {
-    const tagTypes = ['CSS', 'React', 'Animations', 'WebGL', 'JS', 'P5.js', 'Shaders', 'SVG', 'HTML'];
-    const colors = ['orange', 'purple', 'green']
-    return <div className="links__tags">
-    {tags.map((tag) => {
-        const colorIndex = tagTypes.findIndex(t => t === tag.toString()) % (colors.length);
-        const color = colors[colorIndex];
-        return <p key={tag.toString()} className={`links__tag links__tag--${color}`}>{tag}</p>}
-        )}
-    </div>
-}
-
-const Link = ({ link } :LinkProps) => {
-    return <li className="links__item">
-        <a className="links__link" onClick={() => Mixpanel.track(link.title)} href={link.url}>{link.title}</a>
-        <Tags tags={link.tags}/>
-    </li>
-}
-
 export const Content = ({ links } :ContentProps) => {
-    return <ul className="links">
-        {links.map((link :Link) => {
-            return <Link key={link.id} link={link}/>
-        })}
-    </ul>
+    const initialTagState: Array<string> = [];
+    const [activeLinks, setLinks] = useState(links);
+    const [activeTags, setTags] = useState(initialTagState);
+
+    const filterLinks = (tag:any) => {
+        setTags(() => activeTags.includes(tag) ? activeTags.filter((t) => t != tag) : [...activeTags, tag]);
+    }
+
+    const resetFilter = () => {
+        setTags(initialTagState);
+    }
+
+    useEffect(()=>{
+        setLinks(() => activeTags.length > 0 ? links.filter((link) => {
+            return link.tags.some((t) => activeTags.includes(t.toString()))
+        }) : links)
+    }, [activeTags]);
+
+    const tagTypes = getTagTypes({links});
+
+    return <>
+        <Header/>
+        <Filters tagTypes={tagTypes} resetFilter={resetFilter} filterLinks={filterLinks} activeTags={activeTags}/>
+        <p>{activeLinks.length === 1 ? `1 paper` : `${activeLinks.length} papers`}</p>
+        <ul className="links">
+            {activeLinks.map((link :Link) => {
+                return <Link key={link.id} link={link} tagTypes={tagTypes}/>
+            })}
+        </ul>
+    </>
 }
+
+const getTagTypes = ({ links }: ContentProps) => {
+    const tags :Array<Tags> = [];
+    links.map(link => link.tags.map(tag => tag.toString() != 'Inspiration' && tags.push(tag)));
+    return tags.filter((element, index) => {
+        return tags.indexOf(element) === index;
+    });
+};
