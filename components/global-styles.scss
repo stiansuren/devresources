@@ -1,6 +1,23 @@
 body {
-  background: #1D1D1D;
-  font-family: 'Space Mono', monospace;
-  color: #eeeeee;
-  padding: 24px;
+  background: #FFFFFA;
+  font-family: 'Work Sans', sans-serif;
+  color: #000000;
+  padding: 24px 24px;
+}
+
+*:focus {
+  outline: none;
+}
+
+@media (min-width: 900px) {
+  body{
+    padding-right: 64px;
+    padding-left: 64px;  
+  }
+}
+@media (min-width: 1250px) {
+  body{
+    padding-right: 128px;
+    padding-left: 128px;  
+  }
 }

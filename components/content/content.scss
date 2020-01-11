@@ -1,29 +1,27 @@
-$color_white: #eeeeee;
-$color_orange: #FC9307;
-$color_purple: #C326E2;
-$color_green: #54DAAB;
+$color_blue: #0039CC;
 
 a {
     text-decoration: none;
     font-size: 24px;
-    color: $color_white;
+    color: $color_blue;
+    font-weight: 500;
 }
 
 a:visited {
-    color: $color_white;
+    color: $color_blue;
 }
 
 a:hover {
-    color:#dddddd;
+    color: black;
     cursor: pointer;
 }
 
 .links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 340px));
     grid-gap: 0 24px;
     animation: onLoad 0.5s ease-out forwards;
-    padding: 0;
+    padding: 64px 0;
 }
 
 .links__item {
@@ -44,16 +42,7 @@ a:hover {
 .links__tag {
     margin: 0 8px 8px 0;
     width: fit-content;
-
-    &--orange {
-        color: $color_orange;
-    }
-    &--purple {
-        color: $color_purple;
-    }
-    &--green {
-        color: $color_green;
-    }
+    color: black;
 }
 
 li {

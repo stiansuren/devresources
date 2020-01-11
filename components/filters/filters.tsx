@@ -1,4 +1,5 @@
 import React from "react";
+import {FilterButton} from './filter-button';
 import './filters.scss';
 
 type Tags = {
@@ -13,12 +14,9 @@ type FilterProps = {
 }
 
 export const Filters = ({ filterLinks, resetFilter, tagTypes, activeTags } :FilterProps) => {
-
-    const active = (tag:any) => activeTags.includes(tag) ? "filters__tag--active" : "";
     
     return <div className="filters">
-        <h4 className="filters__header">Filters</h4>
-        {tagTypes.map(tag => <button className={`filters__tag ${active(tag)}`} key={tag.toString()} onClick={() => filterLinks(tag)}>{tag}</button>)}
-        <button onClick={() => resetFilter()}>Reset filter</button>
+        {tagTypes.map(tag => <FilterButton tag={tag.toString()} active={activeTags.includes(tag.toString())} key={tag.toString()} onClick={() => filterLinks(tag)}/>)}
+        <button className="filters__button" onClick={() => resetFilter()}>Reset filter</button>
     </div>;
 }

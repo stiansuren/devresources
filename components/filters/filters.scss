@@ -1,0 +1,37 @@
+$color_blue: #0039CC;
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 64px 0;
+    border-bottom: 2px solid black;
+}
+
+.filters__button{
+    font-family: 'IBM Plex Serif', serif;
+    position: relative;
+    background-size: 100px;
+    border: none;
+    font-size: 36px;
+    color: $color_blue;
+    margin: 0;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    padding: 0;
+
+    &:hover {
+        color: black;
+        cursor: pointer;
+    }
+
+    & p {
+        margin: 0;
+    }
+}
+
+.filters__button--active{
+    color: black;
+    text-decoration: underline;
+}
+

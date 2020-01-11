@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
-import { Filters } from '../filters';
+import { Filters } from '../filters/filters';
 import { Link } from './link';
+import { Header } from '../header';
 import './content.scss';
 
 type Link = {
@@ -40,7 +41,9 @@ export const Content = ({ links } :ContentProps) => {
     const tagTypes = getTagTypes({links});
 
     return <>
+        <Header/>
         <Filters tagTypes={tagTypes} resetFilter={resetFilter} filterLinks={filterLinks} activeTags={activeTags}/>
+        <p>Showing {activeLinks.length === 1 ? `1 link` : `${activeLinks.length} links`}</p>
         <ul className="links">
             {activeLinks.map((link :Link) => {
                 return <Link key={link.id} link={link} tagTypes={tagTypes}/>
