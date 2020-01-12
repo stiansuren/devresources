@@ -1,8 +1,8 @@
-$color_blue: #0039CC;
+@import '../_variables.scss';
 
 .category {
     padding: 32px 0;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid $color_black;
 }
 
 .category__header {
@@ -19,7 +19,7 @@ $color_blue: #0039CC;
     font-weight: 500;
     
     a:hover {
-        color: black;
+        color: $color_black;
         cursor: pointer;
     }
 }

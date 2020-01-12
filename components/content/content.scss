@@ -1,10 +1,9 @@
-$color_blue: #0039CC;
+@import '../../_variables.scss';
 
 .links {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 320px));
     grid-gap: 0 24px;
-    animation: onLoad 0.5s ease-out forwards;
     padding: 64px 0;
 }
 
@@ -24,14 +23,9 @@ $color_blue: #0039CC;
     }
     
     a:hover {
-        color: black;
+        color: $color_black;
         cursor: pointer;
     }
-}
-
-.links__link:hover{
-    display: inline-block;
-    animation: linkHover 0.5 ease-out forwards;
 }
 
 .links__tags {
@@ -42,19 +36,9 @@ $color_blue: #0039CC;
 .links__tag {
     margin: 0 8px 8px 0;
     width: fit-content;
-    color: black;
+    color: $color_black;
 }
 
 li {
     list-style-type: none;
 }
-
-@keyframes linkHover { from { } to { 
-    transform: translateY(-3px);
-} }
-
-@keyframes onLoad { from {
-    opacity: 0;
-   } to { 
-    opacity: 1; 
-  } }

@@ -1,11 +1,13 @@
+@import '../_variables.scss';
+
 .header {
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid $color_black;
     padding-bottom: 24px;
 }
 
 .header__logo{
     font-weight: 700;
-    color: black;
+    color: $color_black;
     margin: 0;
     font-size: 36px;
     text-decoration: none;
