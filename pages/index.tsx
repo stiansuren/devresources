@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { HeadTag } from '../components/head-tag';
 import { Header } from '../components/header';
-import { Content } from '../components/content/content';
+import { Inspiration } from '../components/inspiration';
 import { Categories } from '../components/categories/categories';
 import '../components/global-styles.scss';
 import firebase from '../utils/firebase';
@@ -25,11 +25,14 @@ type ContentProps = {
 const Home: NextPage = ({ links } :any) => {
     const tagTypes = getTagTypes({links});
 
-    return <>
+    const inspirationLinks = links.filter((link:any) => link.tags.includes('Inspiration'));
+
+    return <> 
       {Mixpanel.track('Page load')}
       <HeadTag/>
       <Header/>
       <Categories tagTypes={tagTypes}/>
+      <Inspiration links={inspirationLinks}/>
     </>
 };
 
