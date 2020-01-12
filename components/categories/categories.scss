@@ -1,8 +1,8 @@
-$color_blue: #0039CC;
+@import '../../_variables.scss';
 
 .categories {
     padding: 64px 0;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid $color_black;
 }
 
 .categories__header {
@@ -13,6 +13,7 @@ $color_blue: #0039CC;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding: 0;
 }
 
 .category__button{
@@ -30,10 +31,8 @@ $color_blue: #0039CC;
     text-decoration: none;
 
     &:hover {
-        color: black;
+        color: $color_black;
         cursor: pointer;
-
-        transform: perspective(64px) rotateX(8deg);
     }
 
     & p {
@@ -43,17 +42,6 @@ $color_blue: #0039CC;
     &__reset{
         font-size: 24px;
         font-weight: 500;
-    }
-}
-
-.category__button--active{
-    color: black;
-    transform: perspective(64px) rotateX(24deg);
-
-    &:hover {
-        cursor: pointer;
-
-        transform: 0;
     }
 }
 
