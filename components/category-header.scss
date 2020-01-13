@@ -18,7 +18,7 @@
     color: $color_blue;
     font-weight: 500;
     
-    a:hover {
+    &:hover {
         color: $color_black;
         cursor: pointer;
     }
