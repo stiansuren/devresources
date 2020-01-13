@@ -15,17 +15,29 @@ const variants = {
     visible: (i:any) => ({ 
         opacity: 1,
         transition: {
-            delay: i*0.03,
+            delay: 0.1 + i * 0.03,
         },
+        scale: 1,
     }),
-    hidden: { opacity: 0}
+    hidden: { 
+        opacity: 0,
+        scale: 1.05,
+    }
 }
 
 export const Categories = ({ tagTypes } :CategoryProps) => {
     return <div className="categories">
         <h2 className="categories__header">Categories</h2>
         <ul className="categories__buttons">
-            {tagTypes.map((tag, i) => <motion.li custom={i+1} initial='hidden' animate='visible' variants={variants} key={tag.toString()} ><CategoryButton tag={tag.toString()} key={tag.toString()}/></motion.li>)}
+            {tagTypes.map((tag, i) => (
+            <motion.li 
+                custom={i+1} 
+                initial='hidden' 
+                animate='visible' 
+                variants={variants} 
+                key={tag.toString()}>
+                <CategoryButton tag={tag.toString()} key={tag.toString()}/>
+            </motion.li>))}
         </ul>
     </div>
 }

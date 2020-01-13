@@ -1,6 +1,7 @@
 import { Header } from '../components/header';
 import { Content } from '../components/content/content';
 import { CategoryHeader } from '../components/category-header';
+import '../components/global-styles.scss';
 import firebase from '../utils/firebase';
 
 export default function CategoryView ({ links } :any) {

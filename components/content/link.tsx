@@ -1,5 +1,4 @@
 import { Mixpanel } from '../../utils/mixpanel';
-import { motion } from "framer-motion"
 
 type LinkProps = {
     link: Link
@@ -17,7 +16,8 @@ type Tags = {
 }
 
 export const Link = ({ link } :LinkProps) => {
-    return <li className="links__item">
-        <motion.a whileHover={{ skewX: 1.1 }} className="links__link" onClick={() => Mixpanel.track(link.title)} href={link.url}>{link.title}</motion.a>
-    </li>
+    return (
+    <a className="links__link" onClick={() => Mixpanel.track(link.title)} href={link.url}>
+        {link.title}
+    </a>)
 }
