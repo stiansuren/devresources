@@ -1,17 +1,15 @@
-import { Header } from '../components/header';
 import { Content } from '../components/content/content';
 import { CategoryHeader } from '../components/category-header';
-import { HeadTag } from '../components/head-tag';
+import { motion } from 'framer-motion';
+import { variants } from '../utils/motion-variables';
 import '../components/global-styles.scss';
 import firebase from '../utils/firebase';
 
 export default function CategoryView ({ links } :any) {
-    return <>
-        <HeadTag/>
-        <Header/>
+    return <motion.div variants={variants} initial='initial' animate='animate' exit='exit'>
         <CategoryHeader/>
         <Content links={links}/>
-    </>
+    </motion.div>
 }
 
 

@@ -6,7 +6,7 @@ type CategoryButtonProps = {
 
 export const CategoryButton = ({tag } :CategoryButtonProps) => {
 
-    return <Link href={`/${tag}`}>
+    return <Link href={`/${tag}`} scroll={false}>
         <a className={`category__button`}>{tag}</a>
     </Link>
 }

@@ -1,12 +1,11 @@
 import { NextPage } from 'next';
 import firebase from '../utils/firebase';
-import { HeadTag } from '../components/head-tag';
 import { ContentList } from '../admin/contentList';
 import { AddLink } from '../admin/addLink';
 import '../components/global-styles.scss';
 import '../admin/admin.scss';
 import { AddField } from '../admin/addField';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Admin: NextPage = ({ initialLinks } :any) => {
     const [links, setLinks] = useState(initialLinks);
@@ -17,7 +16,6 @@ const Admin: NextPage = ({ initialLinks } :any) => {
     };
     
     return <>
-        <HeadTag/>
         <ContentList handleUpdate={handleUpdate} links={links} />
         <AddLink handleUpdate={handleUpdate} />
         <AddField />

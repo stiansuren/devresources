@@ -1,5 +1,5 @@
 import { Link } from './link';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import './content.scss';
 
 type Link = {
@@ -35,7 +35,7 @@ const variants = {
 }
 
 export const Content = ({ links } :ContentProps) => {
-    return <AnimatePresence>
+    return <>
         <p>{links.length === 1 ? `1 paper` : `${links.length} papers`}</p>
         <ul className="links">
             {links.map((link :Link, i) => {
@@ -44,13 +44,12 @@ export const Content = ({ links } :ContentProps) => {
                     initial='hidden' 
                     animate='visible' 
                     whileHover='whileHover'
-                    exit='hidden'
                     variants={variants} 
-                    key={link.toString()} 
+                    key={link.id} 
                     className="links__item">
                         <Link key={link.id} link={link}/>
                     </motion.li>
             })}
         </ul>
-    </AnimatePresence>
+    </>
 }
