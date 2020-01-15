@@ -1,11 +1,11 @@
 import { NextPage } from 'next';
-import { HeadTag } from '../components/head-tag';
-import { Header } from '../components/header';
 import { Inspiration } from '../components/inspiration';
 import { Categories } from '../components/categories/categories';
 import '../components/global-styles.scss';
 import firebase from '../utils/firebase';
 import { Mixpanel } from '../utils/mixpanel';
+import { motion } from 'framer-motion';
+import { variants } from '../utils/motion-variables';
 
 type Link = {
   title: string,
@@ -27,13 +27,11 @@ const Home: NextPage = ({ links } :any) => {
 
     const inspirationLinks = links.filter((link:any) => link.tags.includes('Inspiration'));
 
-    return <> 
-      {Mixpanel.track('Page load')}
-      <HeadTag/>
-      <Header/>
-      <Categories tagTypes={tagTypes}/>
-      <Inspiration links={inspirationLinks}/>
-    </>
+    return  <motion.div variants={variants} initial='initial' animate='animate' exit='exit'>
+        {Mixpanel.track('Page load')}
+        <Categories tagTypes={tagTypes}/>
+        <Inspiration links={inspirationLinks}/>
+      </motion.div>
 };
 
 Home.getInitialProps = async () => {

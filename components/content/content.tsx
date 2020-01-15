@@ -44,9 +44,8 @@ export const Content = ({ links } :ContentProps) => {
                     initial='hidden' 
                     animate='visible' 
                     whileHover='whileHover'
-                    exit='hidden'
                     variants={variants} 
-                    key={link.toString()} 
+                    key={link.id} 
                     className="links__item">
                         <Link key={link.id} link={link}/>
                     </motion.li>
