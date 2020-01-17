@@ -1,12 +1,13 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 type CategoryButtonProps = {
-    tag: string
-}
+  tag: string;
+};
 
-export const CategoryButton = ({tag } :CategoryButtonProps) => {
-
-    return <Link href={`/${tag}`} scroll={false}>
-        <a className={`category__button`}>{tag}</a>
+export const CategoryButton = ({ tag }: CategoryButtonProps) => {
+  return (
+    <Link href="/[category]" as={`/${tag}`}>
+      <a className={`category__button`}>{tag}</a>
     </Link>
-}
+  );
+};

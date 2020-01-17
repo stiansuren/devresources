@@ -1,22 +1,24 @@
-import { Link, LinkProps } from './link';
+import { Link, LinkProps } from "./link";
 
 type ContentProps = {
-    links: Array<LinkProps>,
-    handleUpdate: () => Promise<void>
-}
+  links: Array<LinkProps>;
+  handleUpdate: () => Promise<void>;
+};
 
-export const ContentList = ({ links, handleUpdate } :ContentProps) => {
-    return <table>
-        <tbody>
-            <tr>
-                <th>Links ({links.length})</th>
-                <th>Tags</th>
-                <th>Date</th>
-                <th>Actions</th>
-            </tr>
-            {links.map((link :LinkProps) => {
-                return <Link key={link.id} handleUpdate={handleUpdate} link={link}/>
-            })}
-        </tbody>
+export const ContentList = ({ links, handleUpdate }: ContentProps) => {
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <th>Links ({links.length})</th>
+          <th>Tags</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+        {links.map((link: LinkProps) => {
+          return <Link key={link.id} handleUpdate={handleUpdate} link={link} />;
+        })}
+      </tbody>
     </table>
-}
+  );
+};
