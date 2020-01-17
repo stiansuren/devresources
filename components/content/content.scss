@@ -1,44 +1,44 @@
-@import '../../utils/_variables.scss';
+@import "../../utils/_variables.scss";
 
 .links {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 320px));
-    grid-gap: 0 24px;
-    padding: 64px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 320px));
+  grid-gap: 0 24px;
+  padding: 32px 0;
 }
 
 .links__item {
-    width: fit-content;
-    margin-bottom: 24px;
+  width: fit-content;
+  margin-bottom: 24px;
 
-    a {
-        text-decoration: none;
-        font-size: 24px;
-        color: $color_blue;
-        font-weight: 500;
-    }
-    
-    a:visited {
-        color: $color_blue;
-    }
-    
-    a:hover {
-        color: $color_black;
-        cursor: pointer;
-    }
+  a {
+    text-decoration: none;
+    font-size: 24px;
+    color: $color_blue;
+    font-weight: 500;
+  }
+
+  a:visited {
+    color: $color_blue;
+  }
+
+  a:hover {
+    color: $color_black;
+    cursor: pointer;
+  }
 }
 
 .links__tags {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .links__tag {
-    margin: 0 8px 8px 0;
-    width: fit-content;
-    color: $color_black;
+  margin: 0 8px 8px 0;
+  width: fit-content;
+  color: $color_black;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
 }

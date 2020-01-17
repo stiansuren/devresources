@@ -1,43 +1,51 @@
 import React from "react";
-import {CategoryButton} from './category-button';
-import './categories.scss';
+import { CategoryButton } from "./category-button";
+import "./categories.scss";
 import { motion } from "framer-motion";
 
 type Tags = {
-    tag: string
-}
+  tag: string;
+};
 
 type CategoryProps = {
-    tagTypes: Array<Tags>
-}
+  tagTypes: Array<Tags>;
+};
 
 const variants = {
-    visible: (i:any) => ({ 
-        opacity: 1,
-        transition: {
-            delay: 0.1 + i * 0.03,
-        },
-        scale: 1,
-    }),
-    hidden: { 
-        opacity: 0,
-        scale: 1.05,
-    }
-}
+  visible: (i: any) => ({
+    opacity: 1,
+    transition: {
+      delay: 0.1 + i * 0.04
+    },
+    scale: 1
+  }),
+  hidden: {
+    opacity: 0,
+    scale: 1.05
+  },
+  whileHover: {
+    scale: 1.05
+  }
+};
 
-export const Categories = ({ tagTypes } :CategoryProps) => {
-    return <div className="categories">
-        <h2 className="categories__header">Categories</h2>
-        <ul className="categories__buttons">
-            {tagTypes.map((tag, i) => (
-            <motion.li 
-                custom={i+1} 
-                initial='hidden' 
-                animate='visible' 
-                variants={variants} 
-                key={tag.toString()}>
-                <CategoryButton tag={tag.toString()} key={tag.toString()}/>
-            </motion.li>))}
-        </ul>
+export const Categories = ({ tagTypes }: CategoryProps) => {
+  return (
+    <div className="categories">
+      <h2 className="categories__header">Categories</h2>
+      <ul className="categories__buttons">
+        {tagTypes.map((tag, i) => (
+          <motion.li
+            custom={i + 1}
+            initial="hidden"
+            animate="visible"
+            whileHover="whilehover"
+            variants={variants}
+            key={tag.toString()}
+          >
+            <CategoryButton tag={tag.toString()} key={tag.toString()} />
+          </motion.li>
+        ))}
+      </ul>
     </div>
-}
+  );
+};

@@ -1,18 +1,32 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import "./category-header.scss";
 
+const variants = {
+  initial: {},
+  whileHover: {
+    scale: 1.02
+  }
+};
+
 export const CategoryHeader = () => {
   const router = useRouter();
+  const [category, setCategory] = useState(router.query.category);
 
   return (
     <div className="category">
       <Link href="/" scroll={false}>
-        <a className="category__back">
-          <LeftArrow /> Back to all categories
-        </a>
+        <motion.a
+          variants={variants}
+          whileHover="whileHover"
+          className="category__back"
+        >
+          <LeftArrow /> All categories
+        </motion.a>
       </Link>
-      <h1 className="category__header">{router.query.category}</h1>
+      <h1 className="category__header">{category}</h1>
     </div>
   );
 };
