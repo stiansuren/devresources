@@ -1,6 +1,9 @@
 export const variants = {
   visible: {
-    opacity: 1
+    opacity: 1,
+    transition: {
+      duration: 0.2
+    }
   },
   hidden: {
     opacity: 0
@@ -8,7 +11,7 @@ export const variants = {
   exit: {
     opacity: 0,
     transition: {
-      type: "spring"
+      duration: 0.2
     }
   }
 };

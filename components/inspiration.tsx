@@ -20,7 +20,7 @@ type InspirationProps = {
 export const Inspiration = ({ links }: InspirationProps) => {
   return (
     <div className="inspiration">
-      <h2 className="inspiration__header">Inspiration</h2>
+      <h2 className="inspiration__header">Peer Reviews</h2>
       <Content links={links} />
     </div>
   );

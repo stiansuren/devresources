@@ -19,12 +19,12 @@ type ContentProps = {
 
 const variants = {
   whileHover: {
-    scale: 1.1
+    scale: 1.05
   },
   visible: (i: any) => ({
     opacity: 1,
     transition: {
-      delay: 0.1 + i * 0.03
+      delay: 0.1 + i * 0.04
     },
     scale: 1
   }),

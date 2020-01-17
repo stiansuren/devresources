@@ -2,7 +2,7 @@ import { HeadTag } from "../components/head-tag";
 import { Header } from "../components/header";
 import { AnimatePresence } from "framer-motion";
 
-function MyApp({ Component, pageProps, router }: any) {
+function App({ Component, pageProps, router }: any) {
   return (
     <>
       <HeadTag />
@@ -14,4 +14,4 @@ function MyApp({ Component, pageProps, router }: any) {
   );
 }
 
-export default MyApp;
+export default App;
