@@ -3,10 +3,10 @@ import "./header.scss";
 
 export const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <Link href="/">
         <a className="header__logo">The Code Journal</a>
       </Link>
-    </div>
+    </header>
   );
 };
