@@ -72,9 +72,11 @@ const getTagTypes = ({ links }: ContentProps) => {
   links.map(link =>
     link.tags.map(tag => tag.toString() != "Inspiration" && tags.push(tag))
   );
-  return tags.filter((element, index) => {
-    return tags.indexOf(element) === index;
-  });
+  return tags
+    .filter((element, index) => {
+      return tags.indexOf(element) === index;
+    })
+    .sort();
 };
 
 export default Home;

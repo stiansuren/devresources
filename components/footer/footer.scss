@@ -1,0 +1,69 @@
+@import "../../utils/_variables.scss";
+
+footer {
+  color: $color_off-white;
+  bottom: 0;
+  padding: 40px 0 80px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+
+  &::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-24px);
+    background-color: black;
+  }
+
+  a {
+    font-size: 18px;
+    color: $color_off-white;
+    font-weight: 500;
+    margin-left: 16px;
+  }
+
+  a:visited {
+    color: $color_off-white;
+  }
+}
+
+.footer__logo {
+  font-size: 36px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer__bio {
+  font-size: 18px;
+  justify-self: end;
+  text-align: right;
+
+  p {
+    margin-top: 4px;
+  }
+
+  a {
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    padding-bottom: 4px;
+  }
+}
+
+@media (min-width: 900px) {
+  footer {
+    &::before {
+      transform: translateX(-64px);
+    }
+  }
+}
+@media (min-width: 1250px) {
+  footer {
+    &::before {
+      transform: translateX(-128px);
+    }
+  }
+}
