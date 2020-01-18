@@ -6,7 +6,8 @@ footer {
   padding: 40px 0 80px;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 24px 0;
 
   &::before {
     z-index: -1;
@@ -23,7 +24,7 @@ footer {
     font-size: 18px;
     color: $color_off-white;
     font-weight: 500;
-    margin-left: 16px;
+    margin-right: 16px;
   }
 
   a:visited {
@@ -35,12 +36,13 @@ footer {
   font-size: 36px;
   font-weight: 700;
   text-decoration: none;
+  margin: 0;
 }
 
 .footer__bio {
   font-size: 18px;
-  justify-self: end;
-  text-align: right;
+  justify-self: left;
+  text-align: left;
 
   p {
     margin-top: 4px;
@@ -53,6 +55,19 @@ footer {
   }
 }
 
+@media (min-width: 448px) {
+  footer {
+    a {
+      margin-right: 0;
+      margin-left: 16px;
+    }
+  }
+
+  .footer__bio {
+    justify-self: end;
+    text-align: right;
+  }
+}
 @media (min-width: 900px) {
   footer {
     &::before {
