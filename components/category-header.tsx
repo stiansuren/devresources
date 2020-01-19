@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import "./category-header.scss";
 
@@ -25,7 +25,6 @@ const line = {
 export const CategoryHeader = () => {
   const router = useRouter();
   const [category, setCategory] = useState(router.query.category);
-  const controls = useAnimation();
 
   return (
     <div className="category">
