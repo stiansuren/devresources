@@ -2,14 +2,14 @@
 
 .links {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 320px));
-  grid-gap: 0 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 2rem;
   padding: 32px 0;
+  margin-bottom: 4rem;
 }
 
 .links__item {
   width: fit-content;
-  margin-bottom: 1.5rem;
 
   a {
     text-decoration: none;
@@ -29,7 +29,7 @@
 }
 
 .paper-count {
-  font-size: 1rem;
+  font-size: 16px;
   margin: 0.5rem 0;
 }
 
