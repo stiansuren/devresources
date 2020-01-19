@@ -1,7 +1,6 @@
 import { NextPage } from "next";
 import { Inspiration } from "../components/inspiration";
 import { Categories } from "../components/categories/categories";
-import "../components/global-styles.scss";
 import firebase from "../utils/firebase";
 import { Mixpanel } from "../utils/mixpanel";
 import { motion } from "framer-motion";

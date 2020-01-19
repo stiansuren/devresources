@@ -2,7 +2,6 @@ import { Content } from "../components/content/content";
 import { CategoryHeader } from "../components/category-header";
 import { motion } from "framer-motion";
 import { variants } from "../utils/motion-variables";
-import "../components/global-styles.scss";
 import firebase from "../utils/firebase";
 
 export default function CategoryView({ links }: any) {

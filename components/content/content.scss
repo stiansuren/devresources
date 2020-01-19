@@ -9,7 +9,7 @@
 
 .links__item {
   width: fit-content;
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 
   a {
     text-decoration: none;
@@ -28,15 +28,9 @@
   }
 }
 
-.links__tags {
-  display: flex;
-  flex-direction: row;
-}
-
-.links__tag {
-  margin: 0 8px 8px 0;
-  width: fit-content;
-  color: $color_black;
+.paper-count {
+  font-size: 1rem;
+  margin: 0.5rem 0;
 }
 
 li {
