@@ -1,31 +1,46 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import "./category-header.scss";
 
 const variants = {
-  initial: {},
+  visible: { scale: 1, opacity: 1 },
+  hidden: { scale: 1.02, opacity: 0 },
+  whileHover: { scale: 1.02 }
+};
+
+const line = {
+  hidden: {
+    pathLength: 0
+  },
+  visible: {
+    pathLength: 1
+  },
   whileHover: {
-    scale: 1.02
+    pathLength: 0.7
   }
 };
 
 export const CategoryHeader = () => {
   const router = useRouter();
   const [category, setCategory] = useState(router.query.category);
+  const controls = useAnimation();
 
   return (
     <div className="category">
-      <Link href="/" scroll={false}>
-        <motion.a
-          variants={variants}
-          whileHover="whileHover"
-          className="category__back"
-        >
-          <LeftArrow /> All categories
-        </motion.a>
-      </Link>
+      <motion.div
+        variants={variants}
+        initial="hidden"
+        animate="visible"
+        whileHover="whileHover"
+      >
+        <Link href="/" scroll={false}>
+          <a className="category__back">
+            <LeftArrow /> All categories
+          </a>
+        </Link>
+      </motion.div>
       <h1 className="category__header">{category}</h1>
     </div>
   );
@@ -33,13 +48,21 @@ export const CategoryHeader = () => {
 
 const LeftArrow = () => (
   <svg
-    width="74"
+    width="52"
     height="16"
     viewBox="0 0 74 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M1 8H74" stroke="#0039CC" strokeWidth="2" />
+    <motion.path
+      variants={line}
+      initial="hidden"
+      animate="visible"
+      whileHover="whileHover"
+      d="M1 8H74"
+      stroke="#0039CC"
+      strokeWidth="2"
+    />
     <path d="M8.5 1L1.5 8L8.5 15" stroke="#0039CC" strokeWidth="2" />
   </svg>
 );

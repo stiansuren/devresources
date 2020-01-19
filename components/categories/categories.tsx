@@ -24,7 +24,7 @@ const variants = {
     scale: 1.05
   },
   whileHover: {
-    scale: 1.05
+    scale: 1.04
   }
 };
 
@@ -38,7 +38,7 @@ export const Categories = ({ tagTypes }: CategoryProps) => {
             custom={i + 1}
             initial="hidden"
             animate="visible"
-            whileHover="whilehover"
+            whileHover="whileHover"
             variants={variants}
             key={tag.toString()}
           >
