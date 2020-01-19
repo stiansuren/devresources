@@ -1,7 +1,7 @@
 @import "../utils/_variables.scss";
 
 .category {
-  padding: 32px 0;
+  padding: 4rem 0;
   border-bottom: 2px solid $color_black;
 }
 
@@ -12,10 +12,18 @@
 }
 
 .category__back {
-  text-decoration: none;
   font-size: 1.5rem;
   color: $color_blue;
   font-weight: 500;
+  margin-bottom: 0.5rem;
+
+  a {
+    text-decoration: none;
+
+    &:visited {
+      color: $color_blue;
+    }
+  }
 
   p {
     display: inline;
@@ -28,9 +36,6 @@
 }
 
 @media (min-width: 900px) {
-  .category {
-    padding: 64px 0;
-  }
   .category__header {
     font-size: 128px;
   }

@@ -33,9 +33,10 @@ export const CategoryHeader = () => {
         initial="hidden"
         animate="visible"
         whileHover="whileHover"
+        className="category__back"
       >
         <Link href="/" scroll={false}>
-          <a className="category__back">
+          <a>
             <LeftArrow /> All categories
           </a>
         </Link>

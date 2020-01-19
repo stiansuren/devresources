@@ -37,7 +37,9 @@ const variants = {
 export const Content = ({ links }: ContentProps) => {
   return (
     <>
-      <p>{links.length === 1 ? `1 paper` : `${links.length} papers`}</p>
+      <p className="paper-count">
+        {links.length === 1 ? `1 paper` : `${links.length} papers`}
+      </p>
       <ul className="links">
         {links.map((link: Link, i) => {
           return (
