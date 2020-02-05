@@ -1,0 +1,16 @@
+.sign-in {
+  margin: 120px 0;
+  max-width: 240px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 6px;
+
+  & input {
+    margin-bottom: 12px;
+  }
+
+  & button {
+    max-width: 100px;
+    margin: 6px 0;
+  }
+}

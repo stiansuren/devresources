@@ -1,3 +1,4 @@
+import { AuthProvider } from "../admin/authContext";
 import { HeadTag } from "../components/head-tag";
 import { Header } from "../components/header";
 import { AnimatePresence } from "framer-motion";
@@ -10,7 +11,9 @@ function App({ Component, pageProps, router }: any) {
       <HeadTag />
       <Header />
       <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} key={router.route} />
+        <AuthProvider>
+          <Component {...pageProps} key={router.route} />
+        </AuthProvider>
       </AnimatePresence>
       <Footer />
     </>
