@@ -1,57 +1,20 @@
 import { NextPage } from "next";
-import firebase from "../utils/firebase";
-import { ContentList } from "../admin/contentList";
-import { AddLink } from "../admin/addLink";
-import "../components/global-styles.scss";
+import React, { useEffect, useContext } from "react";
+
+import { SignIn } from "../admin/sign-in";
+import { AdminContent } from "../admin/adminContent";
+import { AuthContext } from "../admin/authContext";
+
 import "../admin/admin.scss";
-import { AddField } from "../admin/addField";
-import { useState } from "react";
 
-const Admin: NextPage = ({ initialLinks }: any) => {
-  const [links, setLinks] = useState(initialLinks);
+const Admin: NextPage = () => {
+  const { auth } = useContext(AuthContext);
 
-  const handleUpdate = async () => {
-    const updatedLinks = await getLinksFromDatabase();
-    setLinks(updatedLinks);
-  };
+  useEffect(() => {
+    console.log("AdminAuth: ", auth);
+  }, [auth]);
 
-  return (
-    <>
-      <ContentList handleUpdate={handleUpdate} links={links} />
-      <AddLink handleUpdate={handleUpdate} />
-      <AddField />
-    </>
-  );
-};
-
-const getLinksFromDatabase = async () => {
-  let links: Array<any> = [];
-  try {
-    const snapshot = await firebase
-      .firestore()
-      .collection("resources")
-      .orderBy("title")
-      .get();
-    links = snapshot.docs.map(doc => {
-      const data = doc.data();
-      const id = doc.id;
-      return {
-        title: data.title,
-        url: data.url,
-        id: id,
-        tags: data.tags,
-        date: data.date
-      };
-    });
-  } catch (e) {
-    console.error("Error getting documents: ", e);
-  }
-  return links;
-};
-
-Admin.getInitialProps = async () => {
-  const initialLinks = await getLinksFromDatabase();
-  return { initialLinks };
+  return auth ? <AdminContent /> : <SignIn />;
 };
 
 export default Admin;

@@ -1,8 +1,9 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
+import "firebase/auth";
 
-let firebaseConfig = {
-  apiKey: process.env.API_KEY,
+const firebaseConfig = {
+  apiKey: "AIzaSyD53-kdvc9mX85qVoyz_0rsq90bgYZDav0",
   authDomain: "devresources-app.firebaseapp.com",
   databaseURL: "https://devresources-app.firebaseio.com",
   projectId: "devresources-app",
@@ -12,10 +13,47 @@ let firebaseConfig = {
   measurementId: "G-SYS38D6SB1"
 };
 
-// Initialize Firebase
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
-//   firebase.analytics();
+
+export const signIn = async (email: string, password: string) => {
+  let user;
+  try {
+    const snapshot = await firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password);
+    user = snapshot?.user?.email;
+  } catch (e) {
+    console.error("Error getting user: ", e);
+  }
+  return user;
+};
+
+export const signOut = async () => {
+  const isSignedOut = firebase
+    .auth()
+    .signOut()
+    .then(function() {
+      console.log("Signed out");
+      return true;
+    })
+    .catch(function(error) {
+      console.log("Could not sign out");
+      return false;
+    });
+
+  return isSignedOut;
+};
+
+export const addAuthObserver = (observer: Function) => {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      observer(user.email, true);
+    } else {
+      observer("", false);
+    }
+  });
+};
 
 export default firebase;
