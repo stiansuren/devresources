@@ -3,7 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_KEY,
+  apiKey: "AIzaSyD53-kdvc9mX85qVoyz_0rsq90bgYZDav0",
   authDomain: "devresources-app.firebaseapp.com",
   databaseURL: "https://devresources-app.firebaseio.com",
   projectId: "devresources-app",
