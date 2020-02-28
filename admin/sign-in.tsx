@@ -20,7 +20,10 @@ export const SignIn = () => {
       </label>
       <label>
         Password
-        <input type="text" onChange={e => setPassword(e.target.value)}></input>
+        <input
+          type="password"
+          onChange={e => setPassword(e.target.value)}
+        ></input>
       </label>
       <button>Sign In</button>
     </form>

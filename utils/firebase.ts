@@ -47,13 +47,15 @@ export const signOut = async () => {
 };
 
 export const addAuthObserver = (observer: Function) => {
-  firebase.auth().onAuthStateChanged(user => {
+  const unsubscribe = firebase.auth().onAuthStateChanged(user => {
     if (user) {
       observer(user.email, true);
     } else {
       observer("", false);
     }
   });
+
+  return unsubscribe;
 };
 
 export default firebase;
