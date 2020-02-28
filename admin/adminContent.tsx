@@ -7,8 +7,7 @@ import { AddField } from "./addField";
 import { AuthContext } from "./authContext";
 
 export const AdminContent = () => {
-  const initialLinks: any = [];
-  const [links, setLinks] = useState(initialLinks);
+  const [links, setLinks]: any = useState([]);
 
   const { handleSignOut } = useContext(AuthContext);
 
@@ -23,7 +22,7 @@ export const AdminContent = () => {
 
   return (
     <>
-      <button onClick={() => handleSignOut()}>Sign out</button>
+      <button onClick={handleSignOut}>Sign out</button>
       <ContentList handleUpdate={handleUpdate} links={links} />
       <AddLink handleUpdate={handleUpdate} />
       <AddField />
@@ -32,14 +31,13 @@ export const AdminContent = () => {
 };
 
 const getLinksFromDatabase = async () => {
-  let links: Array<any> = [];
   try {
     const snapshot = await firebase
       .firestore()
       .collection("resources")
       .orderBy("title")
       .get();
-    links = snapshot.docs.map(doc => {
+    return snapshot.docs.map(doc => {
       const data = doc.data();
       const id = doc.id;
       return {
@@ -52,6 +50,6 @@ const getLinksFromDatabase = async () => {
     });
   } catch (e) {
     console.error("Error getting documents: ", e);
+    return [];
   }
-  return links;
 };

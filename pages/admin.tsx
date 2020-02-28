@@ -8,13 +8,9 @@ import { AuthContext } from "../admin/authContext";
 import "../admin/admin.scss";
 
 const Admin: NextPage = () => {
-  const { auth } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  useEffect(() => {
-    console.log("AdminAuth: ", auth);
-  }, [auth]);
-
-  return auth ? <AdminContent /> : <SignIn />;
+  return !!user ? <AdminContent /> : <SignIn />;
 };
 
 export default Admin;
