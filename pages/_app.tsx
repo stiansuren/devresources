@@ -7,7 +7,7 @@ import "../components/global-styles.scss";
 
 function App({ Component, pageProps, router }: any) {
   return (
-    <>
+    <div className="content">
       <HeadTag />
       <Header />
       <AnimatePresence exitBeforeEnter>
@@ -16,7 +16,7 @@ function App({ Component, pageProps, router }: any) {
         </AuthProvider>
       </AnimatePresence>
       <Footer />
-    </>
+    </div>
   );
 }
 

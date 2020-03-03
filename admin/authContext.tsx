@@ -52,9 +52,6 @@ export const AuthProvider: React.FunctionComponent<ReactNode> = props => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={value}>
-      {props.children}
-      <h2>{user ? user.toString() : ""}</h2>
-    </AuthContext.Provider>
+    <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>
   );
 };
