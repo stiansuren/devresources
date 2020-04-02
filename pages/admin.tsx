@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 
 import { SignIn } from "../admin/sign-in";
 import { AdminContent } from "../admin/adminContent";

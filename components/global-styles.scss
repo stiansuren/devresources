@@ -23,6 +23,10 @@ body {
   outline: none;
 }
 
+button {
+  max-width: 100px;
+}
+
 @media (min-width: 900px) {
   body {
     padding-right: 64px;

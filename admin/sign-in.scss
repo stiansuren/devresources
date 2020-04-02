@@ -3,14 +3,13 @@
   max-width: 240px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 6px;
+  grid-template-rows: repeat(3, 40px);
+  grid-gap: 16px;
 
   & input {
-    margin-bottom: 12px;
-  }
-
-  & button {
-    max-width: 100px;
-    margin: 6px 0;
+    display: block;
+    margin-top: 8px;
+    width: 200px;
+    font-size: 16px;
   }
 }

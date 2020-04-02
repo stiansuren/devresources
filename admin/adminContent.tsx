@@ -49,7 +49,7 @@ const getLinksFromDatabase = async () => {
       };
     });
   } catch (e) {
-    console.error("Error getting documents: ", e);
+    console.error("Error getting links: ", e);
     return [];
   }
 };
